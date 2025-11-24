@@ -1,8 +1,9 @@
 const button = document.querySelector(".click");
 const displayDiv = document.querySelector(".display-api-content");
-
+const loader = document.getElementById("loader");
 async function fetchData() {
   try {
+    loader.style.display = "block";
     const response = await fetch("https://dummyjson.com/carts");
     if (!response.ok) {
       throw new Error("Network response was not ok " + response.statusText);
@@ -20,6 +21,7 @@ async function fetchData() {
             <h3>🛒 All Cart Contents</h3>
             ${cartsHtmlArray.join("")}
         `;
+    loader.style.display = "none";
   } catch (error) {
     displayDiv.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
     console.log(error);
