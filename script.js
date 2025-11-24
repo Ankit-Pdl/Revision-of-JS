@@ -1,27 +1,29 @@
-const button = document.querySelector("button");
+const button = document.querySelector(".click");
 const displayDiv = document.querySelector(".display-api-content");
 
 async function fetchData() {
   try {
-    const response = await fetch("https://dummyjson.com/products");
-
+    const response = await fetch("https://dummyjson.com/carts");
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error("Network response was not ok " + response.statusText);
     }
     const data = await response.json();
-    displayDiv.innerHTML = `
-      <h2> API response:</h2>
-      <p><strong>Total Products:</strong> ${data.total}</p>
-      <p><strong>Products:</strong> ${data.products
-        .map((product) => product.title)
-        .join("    ,     ")}</p>
+    console.log(data);
+    const cartsHtmlArray = data.carts.map((cart) => {
+      return `
+      <p>
+      User ID: ${cart.userId} | Total Products: ${cart.totalProducts} | Total Quantity: ${cart.totalQuantity} | Total Price: $${cart.total}
+      
       `;
+    });
+    displayDiv.innerHTML = `
+            <h3>🛒 All Cart Contents</h3>
+            ${cartsHtmlArray.join("")}
+        `;
   } catch (error) {
-    displayDiv.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+    displayDiv.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+    console.log(error);
   }
 }
-button.addEventListener("click", fetchData);
 
-const numbers = [1, 2, 3, 4, 5];
-const doubleNums = numbers.map((num) => num * 2);
-console.log(doubleNums);
+button.addEventListener("click", fetchData);
