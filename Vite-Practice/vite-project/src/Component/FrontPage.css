@@ -1,0 +1,216 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e183a;
+}
+.body{
+    text-align: center;
+    color: white;
+}
+.click{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4d5a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background-image: linear-gradient(90deg, #ff6b6b 0%, #ff4d5a 50%, #ffa07a 100%);
+    background-size: 200% 100%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255,77,90,0.18);
+    transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s, filter .18s, background-position .6s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.click:hover{
+    background-color: #e8434f;
+   
+}
+
+
+.display-api-content{
+    width: 520px;
+    max-width: calc(100% - 48px);
+    max-height: 68vh;
+    overflow: auto;
+    margin-left: 36px;
+    padding: 18px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 2px 6px rgba(255,77,90,0.04) inset;
+    color: #eef6ff;
+    backdrop-filter: blur(6px) saturate(120%);
+    transition: transform .18s ease, box-shadow .18s ease;
+    animation: fadeSlide .36s ease both;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* small fade + lift on load */
+@keyframes fadeSlide{
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* items inside the display area */
+.display-api-content .api-item{
+    background: rgba(255,255,255,0.02);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+.display-api-content .api-item .title{
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+.display-api-content .api-item pre,
+.display-api-content .api-item code{
+    background: rgba(0,0,0,0.25);
+    color: #dff7ff;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: "Roboto Mono", "Courier New", monospace;
+    font-size: 13px;
+    overflow: auto;
+    max-height: 180px;
+}
+
+/* empty state */
+.display-api-content .empty{
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    padding: 24px 12px;
+    font-style: italic;
+}
+
+/* custom scrollbar */
+.display-api-content::-webkit-scrollbar{ width: 10px; }
+.display-api-content::-webkit-scrollbar-track{ background: transparent; }
+.display-api-content::-webkit-scrollbar-thumb{
+    background: linear-gradient(180deg, rgba(255,77,90,0.18), rgba(255,77,90,0.28));
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* responsive: stack on narrow screens */
+@media (max-width: 880px){
+    .container{ flex-direction: column; padding: 20px; }
+    .display-api-content{
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        max-height: 50vh;
+    }
+}
+
+
+
+.display-api-content{
+    width: 520px;
+    max-width: calc(100% - 48px);
+    max-height: 68vh;
+    overflow: auto;
+    margin-left: 36px;
+    padding: 18px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 2px 6px rgba(255,77,90,0.04) inset;
+    color: #eef6ff;
+    backdrop-filter: blur(6px) saturate(120%);
+    transition: transform .18s ease, box-shadow .18s ease;
+    animation: fadeSlide .36s ease both;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* small fade + lift on load */
+@keyframes fadeSlide{
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* items inside the display area */
+.display-api-content .api-item{
+    background: rgba(255,255,255,0.02);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+.display-api-content .api-item .title{
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+.display-api-content .api-item pre,
+.display-api-content .api-item code{
+    background: rgba(0,0,0,0.25);
+    color: #dff7ff;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: "Roboto Mono", "Courier New", monospace;
+    font-size: 13px;
+    overflow: auto;
+    max-height: 180px;
+}
+
+/* empty state */
+.display-api-content .empty{
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    padding: 24px 12px;
+    font-style: italic;
+}
+
+/* custom scrollbar */
+.display-api-content::-webkit-scrollbar{ width: 10px; }
+.display-api-content::-webkit-scrollbar-track{ background: transparent; }
+.display-api-content::-webkit-scrollbar-thumb{
+    background: linear-gradient(180deg, rgba(255,77,90,0.18), rgba(255,77,90,0.28));
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+/* responsive: stack on narrow screens */
+@media (max-width: 880px){
+    .container{ flex-direction: column; padding: 20px; }
+    .display-api-content{
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        max-height: 50vh;
+    }
+}
